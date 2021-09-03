@@ -1,7 +1,7 @@
 let btnContainer = document.querySelector(".add-sheet_btn-container");
 let sheetList=document.querySelector(".sheet-list");
 let firstSheet = document.querySelector(".sheet");
-firstSheet.addEventListener("click",handleSheet)
+firstSheet.addEventListener("click",makeMeActive)
 //day 1
 btnContainer.addEventListener("click",function (){
     //cretae sheet
@@ -19,28 +19,11 @@ btnContainer.addEventListener("click",function (){
     }
     NewSheet.classList.add("active");
         //new sheet crate
-        NewSheet.addEventListener("click", handleSheet)
+        NewSheet.addEventListener("click", makeMeActive)
 })
 
-// btnContainer.addEventListener("click", function () {
-//     // create sheet 
-//     let AllSheets = document.querySelectorAll(".sheet");
-//     let lastSheet = AllSheets[AllSheets.length - 1];
-//     let Lastidx = lastSheet.getAttribute("idx");
-//     Lastidx = Number(Lastidx);
-//     let Newsheet = document.createElement("div");
-//     Newsheet.setAttribute("class", "sheet");
-//     Newsheet.setAttribute("idx", `${Lastidx + 1}`);
-//     Newsheet.innerText = `Sheet ${Lastidx + 2}`;
-//     sheetList.appendChild(Newsheet);
-//     for (let i = 0; i < AllSheets.length; i++) {
-//         AllSheets[i].classList.remove("active-btn");
-//     }
-//     Newsheet.classList.add("active-btn");
-//     // new sheet create 
-//     Newsheet.addEventListener("click", handleSheet)
-// })
-function handleSheet(e) {
+function makeMeActive(e) {
+    //event listener add karanga wo cureent target ho jayga
     let sheet = e.currentTarget;
     let AllSheets = document.querySelectorAll(".sheet");
     for( let i=0; i<AllSheets.length; i++){
